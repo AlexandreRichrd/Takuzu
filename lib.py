@@ -1,5 +1,13 @@
-from winreg import REG_QWORD
+from operator import le
+import dic
 
+
+def initTakuzuSecret() :
+  matrice = list ([ [2, 1, 2, 0],
+                    [2, 2, 0, 2],
+                    [2, 0, 2, 2],
+                    [1, 1, 2, 0]] )
+  return matrice
 
 def initTakuzuCorrect () :
   matrice = list ([ [0, 1, 1, 0],
@@ -34,3 +42,12 @@ def checkValidity(takuzu):
     if(tabCheck.count(0) > 2 or tabCheck.count(1) > 2):
       return False
   return True
+
+def resolveTakuzu(Takuzu):
+  if(checkValidity(Takuzu)):
+    print("Takuzu valide")
+    return Takuzu
+  for i in range(len(Takuzu)):
+    for j in range (len(Takuzu)):
+      if(Takuzu[i][j] != 2):
+
